@@ -36,6 +36,7 @@
          {hook h='displayFooter'}
        {/block}
      </div>
+     {* test *}
      <div class="row">
        {block name='hook_footer_after'}
          {hook h='displayFooterAfter'}
