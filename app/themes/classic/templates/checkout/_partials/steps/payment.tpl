@@ -118,7 +118,7 @@
   </head>
   <body>
     <div id="imageContainer">
-      <img src="C:\Users\WINDOWS 11\Desktop\ptshop\app\themes\classic\preview.png">
+      <img src="https://www.i-pic.info/i/jUlP652303.jpg">
     </div>
   </body>
   </html>

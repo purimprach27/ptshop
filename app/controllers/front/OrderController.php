@@ -297,16 +297,6 @@ class OrderControllerCore extends FrontController
             'tos_cms' => $this->getDefaultTermsAndConditions(),
         ]);
 
-        $this->context->smarty->assign([
-            'checkout_process' => new RenderableProxy($this->checkoutProcess),
-            'display_transaction_updated_info' => Tools::getIsset('updatedTransaction'),
-            'tos_cms' => $this->getDefaultTermsAndConditions(),
-        ]);
-    
-        $uploadSlipTextWithPicture = '<img src=preview.jpg" alt="Upload Slip">' . ' ' . $this->trans('Upload Slip', [], 'Shop.Notifications.Error');
-    
-        $this->context->smarty->assign('upload_slip_text_with_picture', $uploadSlipTextWithPicture);
-
         parent::initContent();
         $this->setTemplate('checkout/checkout');
     }
@@ -385,6 +375,21 @@ class OrderControllerCore extends FrontController
             $this->context,
             $session
         );
+
+        /*$checkoutProcess
+            ->addStep(new CheckoutPersonalInformationStep(
+                $this->context,
+                $translator,
+                $this->makeLoginForm(),
+                $this->makeCustomerForm()
+            ));*/
+
+        // $checkoutProcess
+        //     ->addStep(new CheckoutAddressesStep(
+        //         $this->context,
+        //         $translator,
+        //         $this->makeAddressForm()
+        //     ));
 
         if (!$this->context->cart->isVirtualCart()) {
             $checkoutDeliveryStep = new CheckoutDeliveryStep(
