@@ -13,45 +13,124 @@
   </p>
   {/if}
 
-<div class="payment-options">
+<div class="payment-options", style = 'text-align: left;'>
   <form id="paymentForm" method="POST" action="index.php">
     <input type="radio" id="cashPayment" name="paymentMethod" value="cash" required>
-    <label for="cashPayment">{l s='Pay by bank wire<br>SCB 5514432341' d='Shop.Theme.Checkout'}</label><br>
-    <div id="cashMessage"></div>
+    <label for="cashPayment" style = 'text-align: left;'>
+      {l s='จ่ายผ่านพร้อมเพย์ <br>เบอร์โทรศัพท์ : 099-999-9999<br> เลขบัตรประชาชน : 1 9999 99999 99 9<br>ชื่อบัญชี : มหาวิทยาลัยขอนแก่น' d='Shop.Theme.Checkout'}</label><br>
+    <div id="cashMessage">
+</div>
+
+<div class="payment-options", style = 'text-align: left;'>
+  <form id="paymentForm" method="POST" action="index.php">
+    <input type="radio" id="cashPaymentBank" name="paymentMethod" value="bank" required>
+    <label for="cashPaymentBank" style = 'text-align: left;'>
+      {l s='จ่ายผ่านธนาคารโดยตรง <br>ธนาคาร : ไทยพาณิชย์ <br> เลขบัญชี : 551-443-2341<br>ชื่อบัญชี : นางสาวปุริมปรัชญ์ ธงทอง' d='Shop.Theme.Checkout'}</label><br>
+    <div id="cashMessage">
+</div>
     
     <input type="radio" id="transferPayment" name="paymentMethod" value="transfer" required>
-    <label for="transferPayment">{l s='Pay by QR Code' d='Shop.Theme.Checkout'}</label>
+    <label for="transferPayment" style = 'text-align: left;'>{l s='จ่ายผ่านการสแกน QR Code<br>ชื่อบัญชี นางสาวปุริมปรัชญ์ ธงทอง' d='Shop.Theme.Checkout'}</label>
     <body>
       <div id="imageContainer">
-        <img src="https://www.i-pic.info/i/jUlP652303.jpg">
+        <img src="https://www.i-pic.info/i/q36U661005.jpg">
       </div>
     </body>
+    <input type="radio" id="counterPayment" name="paymentMethod" value="counter" required>
+    <label for="counterPayment" style = 'text-align: left;'>{l s='จ่ายผ่าน couter service<br>ชื่อบัญชี นางสาวปุริมปรัชญ์ ธงทอง' d='Shop.Theme.Checkout'}</label>
+    <body>
+      <div id="imageContainer">
+        <img src="https://www.i-pic.info/i/5gpe661009.png">
+      </div>
+    </body>
+    <br><br><br>
     <div id="uploadFileSection" class="ps-upload-file-section">
-      <label for="fileUpload">{l s='Upload Slip' d='Shop.Theme.Checkout'}</label>
+      <label for="fileUpload">{l s='อัปโหลดสลิป' d='Shop.Theme.Checkout'}</label>
       <input type="file" id="fileUpload" name="fileUpload" required>
     </div>
   
     {* Add tax invoice selection radio button and customer information form *}
-    <div class="tax-invoice-section">
-      <label for="taxInvoiceOption">{l s='Do you want to receive a tax invoice?' d='Shop.Theme.Checkout'}</label>
-      <input type="radio" id="taxInvoiceOption" name="taxInvoiceOption" value="yes" required>
-      <label for="taxInvoiceOption">{l s='Yes' d='Shop.Theme.Checkout'}</label>
-      <input type="radio" id="taxInvoiceOption" name="taxInvoiceOption" value="no" required>
-      <label for="taxInvoiceOption">{l s='No' d='Shop.Theme.Checkout'}</label>
+    
+
+    <div class="payment-options">
+      <form id="paymentForm" method="POST" action="index.php">
+        <label for="taxInvoiceOption" style="display: inline-block;">
+          {l s='ต้องใบกำกับภาษีหรือไม่' d='Shop.Theme.Checkout'}
+        </label>
+        <input type="radio" id="taxInvoiceOption" name="taxInvoiceOption" value="yes" required style="display: inline-block;">
+        <label for="taxInvoiceOption" style="display: inline-block;">
+          {l s='ต้องการ' d='Shop.Theme.Checkout'}
+        </label>
+        <input type="radio" id="taxInvoiceOption" name="taxInvoiceOption" value="no" required style="display: inline-block;">
+        <label for="taxInvoiceOption" style="display: inline-block;">
+          {l s='ไม่ต้องการ' d='Shop.Theme.Checkout'}
+        </label>
+      </form>
     </div>
+    
   
     <div class="customer-information-form" id="customerInformationForm" style="display: none;">
-      <label for="customerName">{l s='Name' d='Shop.Theme.Checkout'}</label>
+      <div class="payment-options">
+        <form id="paymentForm" method="POST" action="index.php">
+          <input type="radio" id="M" name="gender" value="นาย" required style="display: inline-block;">
+          <label for="M" style="display: inline-block;">นาย</label>
+          
+          <input type="radio" id="WM" name="gender" value="นาง" required style="display: inline-block;">
+          <label for="WM" style="display: inline-block;">นาง</label>
+          
+          <input type="radio" id="WMs" name="gender" value="นางสาว" required style="display: inline-block;">
+          <label for="WMs" style="display: inline-block;">นางสาว</label>
+        </form>
+      </div>
+      
+      <label for="customerName">{l s='ชื่อจริง' d='Shop.Theme.Checkout'}</label>
+      <input type="text" id="customerName" name="customerName" required>
+      <label for="customerName">{l s='นามสกุล' d='Shop.Theme.Checkout'}</label>
       <input type="text" id="customerName" name="customerName" required>
       <br>
-      <label for="customerAddress">{l s='Address' d='Shop.Theme.Checkout'}</label>
+      <label for="customerAddress">{l s='ที่อยู่' d='Shop.Theme.Checkout'}</label>
       <input type="address" id="customerAddress" name="customerAddress" required>
       <br>
-      <label for="customerTel">{l s='Tel' d='Shop.Theme.Checkout'}</label>
-      <input type="tel" id="customerTel" name="customerTel" required>
+      <script>
+        function validateTelephone(input) {
+          var tel = input.value.trim();
+          if (tel.length !== 10) {
+            alert("กรอกหมายเลขโทรศัพท์ให้ครบถ้วนทั้ง 10 หมายเลข");
+            return false;
+          }
+          return true;
+        }
+      </script>
+      
+      <div class="payment-options">
+        <form id="paymentForm" method="POST" action="index.php">
+          <label for="customerTel">
+            {l s='เบอร์โทรศัพท์' d='Shop.Theme.Checkout'}
+          </label>
+          <input type="tel" id="customerTel" name="customerTel" onblur="validateTelephone(this)" required>
+        </form>
+      </div>
       <br>
-      <label for="taxId">{l s='Tax ID' d='Shop.Theme.Checkout'}</label>
-      <input type="text" id="taxId" name="taxId" required>
+      <script>
+        function validateTaxId(input) {
+          var taxId = input.value.trim();
+          if (taxId.length !== 13) {
+            alert("กรอกหมายเลขประจำตัวผู้เสียภาษีให้ครบถ้วนทั้ง 13 หมายเลข");
+            return false;
+          }
+          return true;
+        }
+      </script>
+      
+      <div class="payment-options">
+        <form id="paymentForm" method="POST" action="index.php">
+          <label for="taxId">
+            {l s='หมายเลขประจำตัวผู้เสียภาษี' d='Shop.Theme.Checkout'}
+          </label>
+          <input type="text" id="taxId" name="taxId" onblur="validateTaxId(this)" required>
+        </form>
+      </div>
+      
     </div>
 
     <button type="submit">{l s='Place Order' d='Shop.Theme.Checkout'}</button>
